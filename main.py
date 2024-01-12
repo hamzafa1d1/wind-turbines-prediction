@@ -37,7 +37,7 @@ def main():
     # Date selection
     selected_date = st.date_input("Select a date", datetime.date.today())
 
-    model_path = "modelTs.h5"  # Replace with the actual path to your H5 file
+    model_path = r"/modelTs.h5"  # Replace with the actual path to your H5 file
     model = load_model(model_path)
 
 
