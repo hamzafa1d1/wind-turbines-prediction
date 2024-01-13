@@ -28,8 +28,8 @@ def main():
     days = pd.date_range(datetime.date.today(), periods=20, freq='D')
     energy_produced = np.random.uniform(2500, 4500, 20)
     chart_data = pd.DataFrame({
-        "col1": days,
-        "col2": energy_produced,
+        "Time": days,
+        "Energy Produced in KWH": energy_produced,
     })
 
     # Calculate energy button
@@ -44,6 +44,6 @@ def main():
             # Display the result
             st.success(result)
 
-    st.line_chart(chart_data, x="col1", y="col2")
+    st.line_chart(chart_data, x="Time", y="Energy Produced in KWH")
 if __name__ == "__main__":
     main()
