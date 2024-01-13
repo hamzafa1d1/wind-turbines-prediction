@@ -20,7 +20,7 @@ def create_features(selected_date):
         'weekofyear': selected_date.isocalendar().week
     }
     return features
-def calculate_energy(selected_date, model):
+def calculate_energy(selected_date):
     features = create_features(selected_date)
 
     # model.predict()
@@ -37,25 +37,22 @@ def main():
     # Date selection
     selected_date = st.date_input("Select a date", datetime.date.today())
 
-    model_path = r"/modelTs.h5"  # Replace with the actual path to your H5 file
-    model = load_model(model_path)
-
-
-    chart_data = pd.DataFrame(
-        {
-            "col1": np.random.randn(20),
-            "col2": np.random.randn(20),
-            "col3": np.random.choice(["A", "B", "C"], 20),
-        }
-    )
-
+    # model_path = r"/modelTs.h5"  # Replace with the actual path to your H5 file
+    # model = load_model(model_path)
+    days = pd.date_range(datetime.date.today(), periods=20, freq='D')
+    energy_produced = np.random.uniform(50, 200, 20)
+    chart_data = pd.DataFrame({
+        "col1": days,
+        "col2": energy_produced,
+        "col3": np.random.choice(["A", "B", "C"], 20),
+    })
 
     # Calculate energy button
     if st.button("Calculate Energy"):
         # Display loading bar while calculating energy
         with st.spinner("Calculating energy..."):
             # Call the function to calculate energy
-            result = calculate_energy(selected_date, model)
+            result = calculate_energy(selected_date)
             # Simulate delay for loading bar effect
             time.sleep(1)
 
