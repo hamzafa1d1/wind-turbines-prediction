@@ -30,7 +30,6 @@ def main():
     chart_data = pd.DataFrame({
         "col1": days,
         "col2": energy_produced,
-        "col3": np.random.choice(["A", "B", "C"], 20),
     })
 
     # Calculate energy button
@@ -45,6 +44,6 @@ def main():
             # Display the result
             st.success(result)
 
-    st.area_chart(chart_data, x="col1", y="col2", color="col3")
+    st.area_chart(chart_data, x="col1", y="col2")
 if __name__ == "__main__":
     main()
