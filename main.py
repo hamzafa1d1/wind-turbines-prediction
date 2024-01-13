@@ -7,22 +7,8 @@ import tensorflow as tf
 
 # Function to calculate energy based on the selected date
 # Function to load the pre-trained model
-def load_model(model_path):
-    return tf.keras.models.load_model(model_path)
-def create_features(selected_date):
-    features = {
-        'dayofweek': selected_date.dayofweek,
-        'quarter': selected_date.quarter,
-        'month': selected_date.month,
-        'year': selected_date.year,
-        'dayofyear': selected_date.dayofyear,
-        'dayofmonth': selected_date.day,
-        'weekofyear': selected_date.isocalendar().week
-    }
-    return features
-def calculate_energy(selected_date):
-    features = create_features(selected_date)
 
+def calculate_energy(selected_date):
     # model.predict()
     time.sleep(2)  # Simulating a delay for energy calculation
     return f"Energy calculated for {selected_date} is 100 kWh"
@@ -40,7 +26,7 @@ def main():
     # model_path = r"/modelTs.h5"  # Replace with the actual path to your H5 file
     # model = load_model(model_path)
     days = pd.date_range(datetime.date.today(), periods=20, freq='D')
-    energy_produced = np.random.uniform(50, 200, 20)
+    energy_produced = np.random.uniform(2500, 4500, 20)
     chart_data = pd.DataFrame({
         "col1": days,
         "col2": energy_produced,
