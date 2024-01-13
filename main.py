@@ -40,10 +40,10 @@ def main():
             result = calculate_energy(selected_date)
             # Simulate delay for loading bar effect
             time.sleep(1)
-
+            st.line_chart(chart_data, x="Time", y="Energy Produced in KWH")
             # Display the result
             st.success(result)
 
-    st.line_chart(chart_data, x="Time", y="Energy Produced in KWH")
+
 if __name__ == "__main__":
     main()
