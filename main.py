@@ -42,7 +42,7 @@ def main():
             time.sleep(1)
             st.line_chart(chart_data, x="Time", y="Energy Produced in KWH")
             # Display the result
-            st.success(result)
+            # st.success(result)
 
 
 if __name__ == "__main__":
