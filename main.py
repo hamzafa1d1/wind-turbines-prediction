@@ -44,6 +44,6 @@ def main():
             # Display the result
             st.success(result)
 
-    st.area_chart(chart_data, x="col1", y="col2")
+    st.line_chart(chart_data, x="col1", y="col2")
 if __name__ == "__main__":
     main()
